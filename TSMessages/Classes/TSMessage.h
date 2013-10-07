@@ -119,6 +119,7 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
 
 /** Use this method to use custom designs in your messages. */
 + (void)addCustomDesignFromFileWithName:(NSString *)fileName;
++ (void)setCustomDesignFromFileWithName:(NSString *)fileName;
 
 /** Indicates whether a notification is currently active. */
 + (BOOL)isNotificationActive;

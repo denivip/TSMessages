@@ -333,6 +333,11 @@ __weak static UIViewController *_defaultViewController;
     [TSMessageView addNotificationDesignFromFile:fileName];
 }
 
++ (void)setCustomDesignFromFileWithName:(NSString *)fileName
+{
+    [TSMessageView setNotificationDesignFromFile:fileName];
+}
+
 
 #pragma mark Other methods
 

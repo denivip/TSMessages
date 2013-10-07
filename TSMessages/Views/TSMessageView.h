@@ -75,6 +75,7 @@
 
 /** Use this method to load a custom design file */
 + (void)addNotificationDesignFromFile:(NSString *)file;
++ (void)setNotificationDesignFromFile:(NSString *)file;
 
 
 @end

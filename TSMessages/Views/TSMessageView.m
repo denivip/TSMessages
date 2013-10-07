@@ -82,6 +82,12 @@ static NSMutableDictionary *_notificationDesign;
     [[TSMessageView notificationDesign] addEntriesFromDictionary:design];
 }
 
++ (void)setNotificationDesignFromFile:(NSString *)file{
+    [[TSMessageView notificationDesign] removeAllObjects];
+    [TSMessageView addNotificationDesignFromFile:file];
+}
+
+
 - (id)initWithTitle:(NSString *)title
            subtitle:(NSString *)subtitle
               image:(UIImage *)image
