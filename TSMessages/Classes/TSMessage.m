@@ -156,10 +156,12 @@ __weak static UIViewController *_defaultViewController;
     __block CGFloat verticalOffset = 0.0f;
     
     void (^addStatusBarHeightToVerticalOffset)() = ^void() {
+#ifndef COMPILE_FOR_EXTENSION
         BOOL isPortrait = UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
         CGSize statusBarSize = [UIApplication sharedApplication].statusBarFrame.size;
         CGFloat offset = isPortrait ? statusBarSize.height : statusBarSize.width;
         verticalOffset += offset;
+#endif
     };
     
     if ([currentView.viewController isKindOfClass:[UINavigationController class]] || [currentView.viewController.parentViewController isKindOfClass:[UINavigationController class]])
@@ -353,7 +355,9 @@ __weak static UIViewController *_defaultViewController;
     
     if (!defaultViewController) {
         NSLog(@"TSMessages: It is recommended to set a custom defaultViewController that is used to display the notifications");
+#ifndef COMPILE_FOR_EXTENSION
         defaultViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+#endif
     }
     return defaultViewController;
 }
